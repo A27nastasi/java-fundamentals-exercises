@@ -1,24 +1,23 @@
 package com.bobocode.basics;
 
 /**
- * {@link Box} is a container class that can store a value of any given type. Using Object as a field type
- * is flexible, because we can store anything we want there. But it is not safe, because it requires runtime casting
- * and there is no guarantee that we know the type of the stored value.
+ * {@link Box} is a container class that can store a value of any given type. Using generics (type "T") is
+ * safer because it enforces type checking at compile-time, eliminating the need for runtime casting.
  * <p>
- * todo: refactor this class so it uses generic type "T" and run {@link com.bobocode.basics.BoxTest} to verify it
+ * todo: Refactored to use generic type "T" and can be verified with {@link com.bobocode.basics.BoxTest}
  */
-public class Box {
-    private Object value;
+public class Box<T> {
+    private T value;
 
-    public Box(Object value) {
+    public Box(T value) {
         this.value = value;
     }
 
-    public Object getValue() {
+    public T getValue() {
         return value;
     }
 
-    public void setValue(Object value) {
+    public void setValue(T value) {
         this.value = value;
     }
 }
